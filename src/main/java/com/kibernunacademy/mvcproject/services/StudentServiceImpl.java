@@ -25,21 +25,21 @@ public class StudentServiceImpl implements IStudentService{
 
   @Override
   public Student saveStudent(Student student) {
-    return null;
+    return repository.save(student); // va aplicar Insert Sql.
   }
 
   @Override
   public Optional<Student> getStudentById(Long id) {
-    return Optional.empty();
+    return repository.findById(id);
   }
 
   @Override
   public Student updateStudent(Student student) {
-    return null;
+    return repository.save(student);
   }
 
   @Override
   public void deleteStudentById(Long id) {
-
+    repository.deleteById(id);
   }
 }

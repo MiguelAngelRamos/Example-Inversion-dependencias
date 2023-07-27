@@ -5,5 +5,6 @@ import com.kibernunacademy.mvcproject.entitys.Student;
 import org.springframework.data.repository.CrudRepository;
 
 public interface IStudentRepository extends CrudRepository<Student, Long> {
+  // podríamos crear más querys
 
 }

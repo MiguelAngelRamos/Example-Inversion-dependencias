@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@Controller // RestController
+@Controller // @RestController (cuando queramos retornar un json)
 public class StudentController {
 
   private final IStudentService service;
