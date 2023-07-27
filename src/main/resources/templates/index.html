@@ -37,8 +37,9 @@
           <td th:text="${students.lastname}"></td>
           <td th:text="${students.email}"></td>
           <td>
-            <!-- <a class="text-success" th:href="@{/students/edit/{id}(id=${students.id})}"><i class="fa-solid fa-pen-to-square mx-3"></i></a>
- <a class="text-danger" th:href="@{/students-delete/{id}(id=${students.id})}"><i class="fa-solid fa-trash"></i></a> -->
+            <a class="text-success" th:href="@{/student/edit/{id}(id=${students.id})}"><i class="fa-solid fa-pen-to-square mx-3"></i></a>
+
+ <a class="text-danger" th:href="@{/students-delete/{id}(id=${students.id})}"><i class="fa-solid fa-trash"></i></a>
           </td>
         </tr>
 

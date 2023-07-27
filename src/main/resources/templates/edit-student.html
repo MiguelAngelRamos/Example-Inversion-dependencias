@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="fragments/head::headerFragment('Create Student')"></head>
+<head th:replace="fragments/head::headerFragment('Edit Student')"></head>
 
 <body>
 
 <!-- Navbar -->
-  <div th:replace="fragments/navbar::navbar"></div>
+<div th:replace="fragments/navbar::navbar"></div>
 <!-- EndNavbar-->
- <!-- .container.mt-5 presionar el "tab" -->
+<!-- .container.mt-5 presionar el "tab" -->
 
 <!-- container > row > col -->
 <div class="container mt-5">
   <!-- h1.text-center -->
-  <h1 class="text-center">Student Form</h1>
+  <h1 class="text-center">Edit Student Form</h1>
   <!-- .row -->
   <div class="row">
     <!-- .col-4 -->
     <div class="col-4 offset-4">
-      <form th:action="@{/student}" th:object="${student}" method="POST">
+      <form th:action="@{/student/{id}(id=${student.id})}" th:object="${student}" method="POST">
         <div class="mb-3">
           <label for="name" class="form-label">Nombre</label>
           <input
@@ -64,7 +64,7 @@
         </div>
 
         <div class="d-grid gap-2">
-          <button type="submit" class="btn btn-success">Create Student</button>
+          <button type="submit" class="btn btn-success">Edit Student</button>
         </div>
 
 
