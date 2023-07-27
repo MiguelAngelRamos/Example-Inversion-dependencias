@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/head::headerFragment('Create Student')"></head>
+
 <body>
 
+<!-- Navbar -->
+  <div th:replace="fragments/navbar::navbar"></div>
+<!-- EndNavbar-->
+ <!-- .container.mt-5 presionar el "tab" -->
+
+<!-- container > row > col -->
+<div class="container mt-5">
+  <!-- h1.text-center -->
+  <h1 class="text-center">Student Form</h1>
+  <!-- .row -->
+  <div class="row">
+    <!-- .col-4 -->
+    <div class="col-4 offset-4">
+      <form>
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+
+          />
+          <!-- th:field="*{name}" -->
+          <small id="nameError" class="text-danger">
+            El campo nombre no puede estar vacío
+          </small>
+        </div>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Apellido</label>
+          <input
+                  type="text"
+                  class="form-control"
+                  id="lastname"
+
+          />
+          <!-- th:field="*{name}" -->
+          <small id="lastNameError" class="text-danger">
+            El campo apellido no puede estar vacío
+          </small>
+        </div>
+
+        <div class="mb-3">
+          <label for="name" class="form-label">Email</label>
+          <input
+                  type="text"
+                  class="form-control"
+                  id="email"
+
+          />
+          <!-- th:field="*{name}" -->
+          <small id="emailError" class="text-danger">
+            El campo email es invalido
+          </small>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-success">Create Student</button>
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+</div>
 </body>
+
 </html>
