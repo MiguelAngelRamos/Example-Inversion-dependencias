@@ -92,6 +92,13 @@ public class StudentController {
     return "redirect:/";
 
 }
+
+// Para eliminar un Estudiante
+  @GetMapping("/student-delete/{id}")
+  public String deleteStudent(@PathVariable Long id) {
+    service.deleteStudentById(id);
+    return "redirect:/";
+  }
 }
 
 class StudentNotFoundException extends RuntimeException {
