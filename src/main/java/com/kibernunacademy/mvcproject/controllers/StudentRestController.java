@@ -40,10 +40,28 @@ public class StudentRestController {
   }
 
   // Actualizar el estudiante
+  @PutMapping("/student/{id}")
+  public Optional<Student> updatedStudent(@RequestBody Student student, @PathVariable Long id) {
+    // Encontrar dentro de la base de datos al estudiante que necesitamos actualizar
+    Optional<Student> studentBD = studentService.getStudentById(id); // obtenemos al estudiante de la base datos
 
+    if(!studentBD.isPresent()) throw new StudentNotFoundException("No existe un Student con ese id: "+ id);
+
+    // comenzamos a actualizar al estudiante
+    studentBD.get().setName(student.getName());
+    studentBD.get().setLastname(student.getLastname());
+    studentBD.get().setEmail(student.getEmail());
+    // studentBD
+    // llamamos al servicio para guardar los dato actualizados del estudiante
+    studentService.saveStudent(studentBD.get());
+    return studentBD;
+  }
 
   // Eliminar el estudiante
 
-
+  @DeleteMapping("/student/{id}")
+  public void deleteStudent(@PathVariable Long id) {
+    studentService.deleteStudentById(id);
+  }
 
 }
