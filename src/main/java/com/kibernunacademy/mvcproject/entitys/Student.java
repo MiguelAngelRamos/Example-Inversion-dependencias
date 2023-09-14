@@ -6,16 +6,23 @@ import java.io.Serializable;
 @Entity
 @Table(name="students")
 public class Student implements Serializable {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private long id;
+  private long id; // valor por defecto de una propiedad 0
   @Column(name="name", nullable = false, length = 50)
-  private String name;
+  private String name; // valor por defecto de una propiedad String null
   @Column(name="lastname", nullable = false, length = 50)
   private String lastname;
   @Column(name="email", nullable = false, length = 50, unique = true)
   private String email;
 
+  public Student() {}
+  public Student(String name, String lastname, String email) {
+    this.name = name;
+    this.lastname = lastname;
+    this.email = email;
+  }
 
   public long getId() {
     return id;
@@ -47,5 +54,15 @@ public class Student implements Serializable {
 
   public void setEmail(String email) {
     this.email = email;
+  }
+
+  @Override
+  public String toString() {
+    return "Student{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", lastname='" + lastname + '\'' +
+            ", email='" + email + '\'' +
+            '}';
   }
 }
